@@ -91,9 +91,9 @@ function HomePage() {
   };
 
   return (
-    <div className="h-screen w-full bg-blue-300 flex flex-col gap-2 p-1">
+    <div className="relative h-screen w-full bg-blue-300 flex flex-col gap-2 p-1">
       {/* Header */}
-      <div className="border min-h-10 flex items-center justify-between p-5">
+      <div className="border min-h-20 flex items-center justify-between p-5">
         <button className="border px-2 py-2 rounded-xl">
           Admin Id: {profile.id}
         </button>
@@ -103,7 +103,7 @@ function HomePage() {
       </div>
 
       {/* Profile Info */}
-      <div className="h-20 w-full border grid grid-cols-3">
+      <div className="min-h-20 w-full border grid grid-cols-3">
         <div className="border flex items-center justify-center">
           <h1 className="capitalize">{profile.name}</h1>
         </div>
@@ -116,7 +116,7 @@ function HomePage() {
       </div>
 
       {/* Turf & Bookings */}
-      <div className="h-full w-full border grid grid-cols-2 p-1">
+      <div className="min-h-50 w-full border grid grid-cols-2 p-1">
         {/* Turf Details */}
         <div className="h-full w-full border flex items-center justify-center">
           {loadingTurf ? (
@@ -140,9 +140,9 @@ function HomePage() {
         </div>
 
         {/* Booking List */}
-        <div className="h-full w-full border p-2 overflow-y-auto">
+        <div className="h-full w-full border p-2 overflow-hidden">
           <h1 className="text-2xl font-bold mb-2">Bookings</h1>
-          <div className="h-full w-full border overflow-y-auto p-2">
+          <div className="relative h-full w-full border overflow-y-scroll p-2 pb-16">
             {loadingBooking ? (
               <h1 className="text-center text-lg">Loading bookings...</h1>
             ) : booking.length > 0 ? (
